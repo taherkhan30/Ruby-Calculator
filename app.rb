@@ -120,7 +120,6 @@ puts "what calculator would you like to use?
 
     end
 
-
   else
         puts "Wrong Input, Re-Enter Choice"
       end
