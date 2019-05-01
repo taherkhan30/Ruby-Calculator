@@ -1,10 +1,10 @@
 
-begin #while loop
 
-  puts "what calculator would you like to use?
+
+puts "what calculator would you like to use?
         a basic,
         b advanced,
-        c bmi
+        c BMI
         d trip calculator"
 
   user_input = gets.chomp
@@ -80,34 +80,47 @@ begin #while loop
   #BMI calculator
   elsif user_input == "BMI"
 
-    puts "what is your weight (kg)? "
+    puts "metric or imperial measurements"
 
-    weight = gets.chomp.to_f
+    measure = gets.chomp
 
-    puts "what is your height (in meters)?"
+    if measure == "metric"
 
-    height = gets.chomp.to_f
+      puts "what is your weight (kg)? "
+      weight = gets.chomp.to_f
+      puts "what is your height (in meters)?"
+      height = gets.chomp.to_f
+      bmi = weight / (height**2)
 
-    bmi = weight / (height**2)
+      puts "you Body Mass Index is #{bmi}"
 
-    puts "you Body Mass Index is #{bmi}"
+        if bmi < 18.5
+            puts "you are underweight"
 
-      if bmi < 18.5
-          puts "you are underweight"
+        elsif bmi >= 18.5 and bmi < 24.9
+            puts "you are at a normal weight"
 
-      elsif bmi >= 18.5 and bmi < 24.9
-          puts "you are at a normal weight"
+        elsif bmi >= 24.9 and bmi < 30
+            print "you are overweight"
 
-      elsif bmi >= 24.9 and bmi < 30
-          print "you are overweight"
+        elsif ( bmi >=30)
+            print("you are suffering from Obesity")
+        end
+    elsif measure == "imperial"
+      puts "Enter your weight in stones"
+       i_weight = gets.chomp
+        kg_converted = i_weight.to_f * 6.35
+        puts kg_converted
+        puts "Enter your height in inches"
+        i_height = gets.chomp
+        t_height = i_height.to_f * 0.304
+        puts t_height
+        bmi = kg_converted / t_height / t_height
+        puts "Your BMI is #{bmi}"
 
-      elif ( bmi >=30)
-          print("you are suffering from Obesity")
+    end
 
 
-      else
+  else
         puts "Wrong Input, Re-Enter Choice"
       end
-  end
-
-end # end while loop
