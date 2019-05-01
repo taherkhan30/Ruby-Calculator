@@ -1,98 +1,113 @@
 
-puts "what calculator would you like to use?
-      a Basic,
-      b Advanced,
-      c BMI
-      d Trip calculator"
+begin #while loop
 
-user_input = gets.chomp
+  puts "what calculator would you like to use?
+        a basic,
+        b advanced,
+        c bmi
+        d trip calculator"
 
-if user_input == "basic"
-
-  puts "you have chosen #{user_input}"
-
-  puts "num1"
-
-  num1 = gets.chomp
-
-  puts "num2"
-
-  num2 = gets.chomp
-
-   puts "plus, minus, divide, multiply"
-
-   ops = gets.chomp
-
-   if ops == "plus"
-    add = num1.to_f + num2.to_f
-    puts add
-   elsif  ops == "minus"
-    minus = num1.to_f - num2.to_f
-    puts minus
-  elsif  ops == "divide"
-    divide = num1.to_f / num2.to_f
-    puts divide
-  elsif  ops == "multiply"
-    multiply = num1.to_f * num2.to_f
-    puts multiply
-  end
-
-elsif user_input == "advanced"
-
-  puts "you have chosen #{user_input}"
-
-  puts "a - Find power of number
-        b - Square Root a Number "
   user_input = gets.chomp
 
-  if user_input == "a"
+  if user_input == "basic"
 
-    puts "enter first num "
+    puts "you have chosen #{user_input}"
 
-    first_num = gets.chomp
+    puts "num1"
 
-     puts "enter second num "
+    num1 = gets.chomp.to_f
 
-    second_num = gets.chomp
+    puts "plus, minus, divide, multiply"
 
-    powers = first_num.to_i ** second_num.to_i
+    ops = gets.chomp
 
-    puts "the results #{powers}"
+    puts "num2"
 
-  elsif user_input == "b"
+    num2 = gets.chomp.to_f
 
-    puts "which number do you want to square?"
 
+     if ops == "+"
+      add = num1 + num2
+      puts add
+    elsif  ops == "-"
+      minus = num1 - num2
+      puts minus
+    elsif  ops == "/"
+      divide = num1 / num2
+      puts divide
+    elsif  ops == "*"
+      multiply = num1 * num2
+      puts multiply
+    else
+      puts "invalid operator"
+    end
+  #Advanced calculator
+  elsif user_input == "advanced"
+
+    puts "you have chosen #{user_input}"
+
+    puts "a - Find power of number
+          b - Square Root a Number "
     user_input = gets.chomp
 
-    square_num = user_input.to_f
+    if user_input == "a"
 
-    square_num_result = Math.sqrt(square_num)
-    puts square_num_result
+      puts "enter first number "
+
+      first_num = gets.chomp.to_f
+
+       puts "enter second number "
+
+      second_num = gets.chomp.to_f
+
+      powers = first_num ** second_num
+
+      puts "the results #{powers}"
+
+    elsif user_input == "b"
+
+      puts "which number do you want to square?"
+
+      user_input = gets.chomp.to_f
+
+      square_num = user_input
+
+      square_num_result = Math.sqrt(square_num)
+      puts square_num_result
 
 
+    end
+  #BMI calculator
+  elsif user_input == "BMI"
+
+    puts "what is your weight (kg)? "
+
+    weight = gets.chomp.to_f
+
+    puts "what is your height (in meters)?"
+
+    height = gets.chomp.to_f
+
+    bmi = weight / (height**2)
+
+    puts "you Body Mass Index is #{bmi}"
+
+      if bmi < 18.5
+          puts "you are underweight"
+
+      elsif bmi >= 18.5 and bmi < 24.9
+          puts "you are at a normal weight"
+
+      elsif bmi >= 24.9 and bmi < 30
+          print "you are overweight"
+
+      elif ( bmi >=30)
+          print("you are suffering from Obesity")
+
+
+      else
+        puts "Wrong Input, Re-Enter Choice"
+      end
   end
 
-elsif user_input == "BMI"
-
-  puts "what is your weight? "
-
-  weight = gets.chomp
-
-  puts "what is your height?"
-
-  height = gets.chomp
-
-  height_converted = height.to_f
-
-  height_squared = Math.sqrt(height_converted)
-
-  bmi = weight.to_f / height_squared
-
-  puts bmi
-
-else
-
-    puts "bad input"
-
-end
+end # end while loop
