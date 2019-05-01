@@ -7,24 +7,15 @@ puts "what calculator would you like to use?
         c BMI
         d trip calculator"
 
-  user_input = gets.chomp
+ #Basic Calculator
 
-  if user_input == "basic"
-
-    puts "you have chosen #{user_input}"
-
+  def basic_calculator
     puts "num1"
-
     num1 = gets.chomp.to_f
-
     puts "plus, minus, divide, multiply"
-
     ops = gets.chomp
-
     puts "num2"
-
     num2 = gets.chomp.to_f
-
 
      if ops == "+"
       add = num1 + num2
@@ -41,10 +32,19 @@ puts "what calculator would you like to use?
     else
       puts "invalid operator"
     end
-  #Advanced calculator
-  elsif user_input == "advanced"
 
-    puts "you have chosen #{user_input}"
+  end
+
+    user_input = gets.chomp
+
+    if user_input == "basic"
+       basic_calculator
+      end
+
+
+  # #Advanced calculator
+
+  def advanced_calculator
 
     puts "a - Find power of number
           b - Square Root a Number "
@@ -76,11 +76,18 @@ puts "what calculator would you like to use?
       puts square_num_result
 
 
-    end
-  #BMI calculator
-  elsif user_input == "BMI"
+  end
+ end
 
-    puts "metric or imperial measurements"
+
+ if user_input == "advanced"
+    advanced_calculator
+  end
+
+
+  # #BMI calculator
+def bmi_calculator
+  puts "metric or imperial measurements"
 
     measure = gets.chomp
 
@@ -94,18 +101,7 @@ puts "what calculator would you like to use?
 
       puts "you Body Mass Index is #{bmi}"
 
-        if bmi < 18.5
-            puts "you are underweight"
 
-        elsif bmi >= 18.5 and bmi < 24.9
-            puts "you are at a normal weight"
-
-        elsif bmi >= 24.9 and bmi < 30
-            print "you are overweight"
-
-        elsif ( bmi >=30)
-            print("you are suffering from Obesity")
-        end
     elsif measure == "imperial"
       puts "Enter your weight in stones"
        i_weight = gets.chomp
@@ -118,8 +114,11 @@ puts "what calculator would you like to use?
         bmi = kg_converted / t_height / t_height
         puts "Your BMI is #{bmi}"
 
-    end
+end
+  end
 
-  else
-        puts "Wrong Input, Re-Enter Choice"
-      end
+
+
+  if user_input == "BMI"
+    bmi_calculator
+  end
